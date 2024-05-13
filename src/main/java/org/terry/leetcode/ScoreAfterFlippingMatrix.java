@@ -1,12 +1,19 @@
-package org.terry;
+package org.terry.leetcode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LiveMain {
+/**
+ 861. Score After Flipping Matrix
+ Principal:
+ 0) with row = i, check matrix at row ith and col 0, aka the 1st col in the row. If it is '0', let's flip the row because
+ the largest number will have the left-most bit is '1'.
+ 1) After the step 0, we check all the col in matrix and make sure number of bit '1' in matrix[i][col], i in [0, rowSize),
+ is always greater than or equal to the number of bit '0', if not, we flip matrix[i][col].
+ */
+public class ScoreAfterFlippingMatrix {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new ScoreAfterFlippingMatrix().test();
 	}
-
 	public void test() {
 		int[][] grid;
 		int outptut;
@@ -66,6 +73,7 @@ public class LiveMain {
 		return res;
 	}
 
+	// used for testing matrix after flipping row, col values.
 	private void print(int[][] grid) {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
@@ -76,4 +84,5 @@ public class LiveMain {
 
 		System.out.println();
 	}
+
 }
