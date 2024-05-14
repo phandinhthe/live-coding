@@ -1,11 +1,18 @@
-package org.terry;
+package org.terry.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.terry.LiveMain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LiveMain {
+/**
+ * 1219. Path with Maximum Gold
+ * https://leetcode.com/problems/path-with-maximum-gold
+ * <p>
+ * Principal:
+ * - Brute force
+ * - Complexity (25 * 4^25) because there are at most 25 golden cells.
+ */
+public class PathWithMaximumGold {
 	public static void main(String[] args) {
 		new LiveMain().test();
 	}
@@ -49,7 +56,6 @@ public class LiveMain {
 		return res;
 	}
 
-
 	public int dfs(int rowSize, int colSize, int currentRow, int currentCol) {
 		if (!check(rowSize, colSize, currentRow, currentCol)) return 0;
 
@@ -70,5 +76,4 @@ public class LiveMain {
 		if (row >= rowSize || col >= colSize) return false;
 		return grid[row][col] != 0;
 	}
-
 }
