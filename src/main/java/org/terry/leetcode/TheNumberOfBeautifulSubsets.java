@@ -1,14 +1,13 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
-import java.util.*;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
-public class LiveMain {
+public class TheNumberOfBeautifulSubsets {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new TheNumberOfBeautifulSubsets().test();
 	}
 
 	public void test() {
@@ -34,14 +33,13 @@ public class LiveMain {
 		output = 23;
 		actual = new BruteForceUsingInvalidCountSet().beautifulSubsets(nums, k);
 		Assertions.assertEquals(output, actual);
-
 	}
 
 	/**
 	 * Brute force:
 	 * - Use a Map or an Arrray to count the appearance of nums[i] + 7 and nums[i] - 7(i: [0,n).
 	 * When cur index is at 'i', check the invalid number of nums[i] and skip if the invalid is already in the invalid count array.
-	 *
+	 * <p>
 	 * Complexity: O(2^n)
 	 * Space: O(Max(nums[i] + k)
 	 */
@@ -79,7 +77,7 @@ public class LiveMain {
 
 	/**
 	 * Brute force.
-	 *
+	 * <p>
 	 * List out all the subset and check every number valid or not.
 	 * Complexity: O(n * 2^n)
 	 */
@@ -118,6 +116,4 @@ public class LiveMain {
 		}
 
 	}
-
 }
-
