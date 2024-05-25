@@ -1,4 +1,4 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
@@ -14,11 +14,11 @@ import java.util.Set;
  * 2. From `startIndex = 0`, Looping over and append character[i] in `s`. => word = appended (startIndex, i). If word in `wordDict` => add to `sentence`
  * 3. Till the end of `s`, add `sentence` to `res`
  *
- * Complexity: O(s.length()^2)
+ * Complexity: O(n^n)
  */
-public class LiveMain {
+public class WordBreakII {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new WordBreakII().test();
 	}
 
 	public void test() {
@@ -52,6 +52,7 @@ public class LiveMain {
 		Assertions.assertEquals(new HashSet<>(output), new HashSet<>(actual));
 
 	}
+
 	private List<String> res;
 	private int goalIndex;
 	private String input;
@@ -82,6 +83,4 @@ public class LiveMain {
 			sentence.setLength(sentence.length() - word.length() - 1);
 		}
 	}
-
 }
-
