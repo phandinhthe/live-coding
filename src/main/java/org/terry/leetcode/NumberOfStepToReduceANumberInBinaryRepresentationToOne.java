@@ -1,10 +1,18 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
-public class LiveMain {
+/**
+ *	https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/description/
+ *	1404. Number of Steps to Reduce a Number in Binary Representation to One
+ *	- loop over s.charArray from `length-1` to `1`
+ * 	- Keep track `extra` and current digit `n`
+ *
+ * 	- complexity: O(n)
+ */
+public class NumberOfStepToReduceANumberInBinaryRepresentationToOne {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new NumberOfStepToReduceANumberInBinaryRepresentationToOne().test();
 	}
 
 	public void test() {
@@ -60,4 +68,3 @@ public class LiveMain {
 		return res;
 	}
 }
-
