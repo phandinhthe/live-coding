@@ -1,10 +1,20 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
-public class LiveMain {
+/**
+ * 1442. Count Triplets That Can Form Two Arrays of Equal XOR
+ * https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor
+ * <p>
+ * - Find sub-array in `arr`
+ * - total xor sub-array a[i ...j] == 0 => we have (i-j) results.
+ * - loop over [i...arr.length-2] and nested [j=i+1, arr.length-1], check arr[i] == xor of arr[i+1,j]
+ * Complexity: O(n^2)
+ * Space:		O(1)
+ */
+public class CountTripletsThatCanFormTwoArraysOfEqualXor {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new CountTripletsThatCanFormTwoArraysOfEqualXor().test();
 	}
 
 	public void test() {
@@ -28,27 +38,16 @@ public class LiveMain {
 		Assertions.assertEquals(output, actual);
 	}
 
-	/**
-	 *
-	 *	1442. Count Triplets That Can Form Two Arrays of Equal XOR
-	 *	https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor
-	 *
-	 *  - Find sub-array in `arr`
-	 *  - total xor sub-array a[i ...j] == 0 => we have (i-j) results.
-	 *  Complexity: O(n^2)
-	 *  Space:		O(1)
-	 */
 	public int countTriplets(int[] arr) {
 		int res = 0;
 		for (int i = 0; i < arr.length - 1; i++) {
 			int xor = 0;
 			for (int j = i + 1; j < arr.length; j++) {
 				xor ^= arr[j];
-				if (arr[i] == xor) res += (j-i);
+				if (arr[i] == xor) res += (j - i);
 			}
 		}
 		return res;
 	}
 
 }
-
