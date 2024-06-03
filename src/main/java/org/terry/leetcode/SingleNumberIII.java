@@ -5,6 +5,15 @@ import org.junit.jupiter.api.Assertions;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * https://leetcode.com/problems/single-number-iii
+ * Single number III
+ * <p>
+ * step 1: find xor of all unique numbers
+ * step 2: find the right most bit that represent the difference between 2 unique numbers
+ * step 3: group all numbers into 2 groups: 1 group has diffBit & number != 0, 1 group has diffBit & number == 0
+ * step 4: xor all values in group 1 => first unique number, the same for all values in group 2 to have second unique number
+ */
 public class SingleNumberIII {
 	public static void main(String[] args) {
 		new SingleNumberIII().test();
@@ -31,15 +40,6 @@ public class SingleNumberIII {
 		Assertions.assertEquals(IntStream.of(output).boxed().collect(Collectors.toSet()), IntStream.of(actual).boxed().collect(Collectors.toSet()));
 	}
 
-	/**
-	 * https://leetcode.com/problems/single-number-iii
-	 * Single number III
-	 * <p>
-	 * step 1: find xor of all unique numbers
-	 * step 2: find the right most bit that represent the difference between 2 unique numbers
-	 * step 3: group all numbers into 2 groups: 1 group has diffBit & number != 0, 1 group has diffBit & number == 0
-	 * step 4: xor all values in group 1 => first unique number, the same for all values in group 2 to have second unique number
-	 */
 	public int[] singleNumber(int[] nums) {
 		// xor all values to find the xor of 2 unique numbers.
 		int xor = 0;
