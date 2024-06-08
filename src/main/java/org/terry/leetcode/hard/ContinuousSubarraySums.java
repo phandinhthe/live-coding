@@ -1,13 +1,22 @@
-package org.terry;
+package org.terry.leetcode.hard;
+
+/*
+https://leetcode.com/problems/continuous-subarray-sum
+523. Continuous Subarray Sum
+Apply prefix-sum.
+1. Check the edge case with 2 consecutive elements that mod k == 0.
+2. Check the rest case - ignore the elements that its value mod k == 0.
+Complexity: O(n)
+ */
 
 import org.junit.jupiter.api.Assertions;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class LiveMain {
+public class ContinuousSubarraySums {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new ContinuousSubarraySums().test();
 	}
 
 	public void doTest(int[] nums, int k, boolean expected) {
@@ -83,4 +92,5 @@ public class LiveMain {
 		return false;
 
 	}
+
 }
