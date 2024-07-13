@@ -104,10 +104,10 @@ public class RobotCollisions {
     }
 
     static class Robot {
-        private int originalIndex;
-        private int position;
+        private final int originalIndex;
+        private final int position;
+        private final int direction;
         private int health;
-        private int direction;
 
         public Robot(int originalIndex, int position, int health, int direction) {
             this.originalIndex = originalIndex;
