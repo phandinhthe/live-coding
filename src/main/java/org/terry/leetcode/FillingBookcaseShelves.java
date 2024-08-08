@@ -1,20 +1,31 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
 
-public class LiveMain {
+/**
+ * https://leetcode.com/problems/filling-bookcase-shelves/
+ * <p>
+ * tuition:
+ * - backtrack
+ * - cache
+ *
+ * Complexity:  O(n^2)
+ * Space:       O(n)
+ */
+public class FillingBookcaseShelves {
     public static void main(String[] args) {
-        new LiveMain().test();
+        new FillingBookcaseShelves().test();
     }
+
 
     public void test() {
         int[][] books;
         int shelfWidth;
         int expected, output;
 
-        books = new int[][]{{1,1},{2,3},{2,3},{1,1},{1,1},{1,1},{1,2}};
+        books = new int[][]{{1, 1}, {2, 3}, {2, 3}, {1, 1}, {1, 1}, {1, 1}, {1, 2}};
         shelfWidth = 4;
         expected = 6;
         output = minHeightShelves(books, shelfWidth);
@@ -22,6 +33,7 @@ public class LiveMain {
     }
 
     int[] cache;
+
     public int minHeightShelves(int[][] books, int shelfWidth) {
         cache = new int[books.length];
         Arrays.fill(cache, -1);
@@ -36,7 +48,7 @@ public class LiveMain {
         int maxHeight = 0;
         int remain = selfWidth;
         int result = Integer.MAX_VALUE;
-        for (int next = cur; next < books.length; next ++) {
+        for (int next = cur; next < books.length; next++) {
             int width = books[next][0];
             int height = books[next][1];
             if (width > remain) {
@@ -50,5 +62,6 @@ public class LiveMain {
         cache[cur] = result;
         return result;
     }
+
 
 }
