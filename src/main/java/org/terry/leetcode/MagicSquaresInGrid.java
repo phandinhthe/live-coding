@@ -1,14 +1,17 @@
-package org.terry;
+package org.terry.leetcode;
 
 import org.junit.jupiter.api.Assertions;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LiveMain {
+/**
+ * Leetcode 840: Magic Squares in Grid.
+ * https://leetcode.com/problems/magic-squares-in-grid/description/
+ */
+public class MagicSquaresInGrid {
     public static void main(String[] args) {
-        new LiveMain().test();
+        new MagicSquaresInGrid().test();
     }
 
     public void test() {
@@ -66,5 +69,6 @@ public class LiveMain {
         if (sumC[0] != 15 || sumC[1] != 15 || sumC[2] != 15) return false;
         return sumD[0] == 15 && sumD[2] == 15;
     }
+
 
 }
