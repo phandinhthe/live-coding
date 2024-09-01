@@ -1,7 +1,5 @@
 package org.terry.leetcode;
 
-import org.terry.LiveMain;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -14,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class PathWithMaximumGold {
 	public static void main(String[] args) {
-		new LiveMain().test();
+		new PathWithMaximumGold().test();
 	}
 
 	public void test() {

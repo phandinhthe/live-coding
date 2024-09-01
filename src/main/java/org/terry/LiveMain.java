@@ -2,12 +2,10 @@ package org.terry;
 
 public class LiveMain {
     public static void main(String[] args) {
-        new LiveMain().test();
+        new LiveMain().run();
     }
 
-    public void test() {
+    public void run() {
 
     }
-
-
 }
