@@ -6,7 +6,6 @@ public class LiveMain {
     }
 
     public void run() {
-
     }
 
 }
