@@ -1,26 +1,12 @@
-package org.terry;
+package org.terry.leetcode.hard;
 
 import org.junit.jupiter.api.Assertions;
 
 import java.util.*;
 
-/**
- * Leetcode 2699. Modify Graph Edge Weights.
- * Tuition:
- * - Initialize graph, edge weight == -1 will be ignored.
- * - Find the shortest path, using Djikstra, if:
- * - - shortest path == target => set all edge weight -1 = MAX, return edges.
- * - - shortest path != target => iterate over all edges having weight -1, set edge = 1, find the shortest path
- * - - - if result == target, set all edge weight -1 to MAX and return edges.
- * - - - else the shortest path != target, update edge += (target - shortest path), return edges.
- *
- * n = edges.length
- * COmplexity: O(nlogn)
- * Space: O(n*n)
- */
-public class LiveMain {
+public class ModifyGraphEdgeWeights {
     public static void main(String[] args) {
-        new LiveMain().run();
+        new ModifyGraphEdgeWeights().run();
     }
 
     public void run() {
@@ -61,7 +47,7 @@ public class LiveMain {
         Assertions.assertEquals(expected.length, actual.length);
 
         int expectedTotal = 0, actualTotal = 0;
-        for (int i = 0 ; i < expected.length; i ++) {
+        for (int i = 0; i < expected.length; i++) {
             expectedTotal += expected[i][2];
             actualTotal += actual[i][2];
         }
@@ -69,13 +55,13 @@ public class LiveMain {
     }
 
     int djikstra(int n, Map<Integer, Map<Integer, Integer>> graph, int src, int des) {
-        Queue<int[]> minHeap = new PriorityQueue<>( Comparator.comparing(k -> k[1]));
+        Queue<int[]> minHeap = new PriorityQueue<>(Comparator.comparing(k -> k[1]));
         boolean[] checked = new boolean[n];
         minHeap.offer(new int[]{src, 0});
-        while(!minHeap.isEmpty()) {
+        while (!minHeap.isEmpty()) {
             int node = minHeap.peek()[0];
             int weight = minHeap.poll()[1];
-            if (node == des) return weight;
+            if (node==des) return weight;
             if (checked[node]) continue;
             checked[node] = true;
 
@@ -108,7 +94,8 @@ public class LiveMain {
             if (edge[2]!=-1) continue;
             int delta = target - curDist;
             if (delta==0) {
-               edge[2] = MAX; continue;
+                edge[2] = MAX;
+                continue;
             }
             edge[2] = 1;
             int u = edge[0];
