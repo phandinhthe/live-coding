@@ -19,45 +19,17 @@ public class SmallestValueAfterReplacingWithSumOfPrimeFactors {
     }
 
     public void run() {
-        // input:
-        int n;
-        int output;
-
         // assertion
-        n = 5;
-        output = 5;
-        Assertions.assertEquals(output, smallestValue(n));
-        n = 3;
-        output = 3;
-        Assertions.assertEquals(output, smallestValue(n));
-        n = 4;
-        output = 4;
-        Assertions.assertEquals(output, smallestValue(n));
-        n = 7;
-        output = 7;
-        Assertions.assertEquals(output, smallestValue(n));
-        n = 14;
-        output = 5;
-        Assertions.assertEquals(output, smallestValue(n));
-        n = 15;
-        output = 5;
-        Assertions.assertEquals(output, smallestValue(n));
-
+        assertEqual(5, 5);
+        assertEqual(3, 3);
+        assertEqual(4, 4);
+        assertEqual(7, 7);
+        assertEqual(5, 14);
+        assertEqual(5, 15);
     }
-
-    int findSum(int n) {
-        int res = 0;
-        int prime = 2;
-        while (n > 1) {
-            while (n % prime==0) {
-                n /= prime;
-                res += prime;
-            }
-            prime++;
-        }
-        return res;
+    public void assertEqual(int output, int n) {
+        Assertions.assertEquals(output, smallestValue(n));
     }
-
     public int smallestValue(int n) {
         int res = 0;
         boolean hasFactor = true;
@@ -68,6 +40,20 @@ public class SmallestValueAfterReplacingWithSumOfPrimeFactors {
         }
         return n;
     }
+    private int findSum(int n) {
+        int res = 0;
+        int prime = 2;
+        while (n > 1) {
+            if (n % prime!=0) {
+                prime++;
+                continue;
+            }
+            n /= prime;
+            res += prime;
+        }
+        return res;
+    }
+
 }
 
 
