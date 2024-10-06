@@ -1,12 +1,11 @@
 package org.terry;
 
-import org.junit.jupiter.api.Assertions;
-
 public class LiveMain {
-  public static void main(String[] args) {
-    new LiveMain().run();
-  }
+    public static void main(String[] args) {
+        new LiveMain().run();
+    }
 
-  public void run() {
-  }
+    public void run() {
+
+    }
 }
