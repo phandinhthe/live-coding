@@ -1,4 +1,5 @@
-package org.terry;
+package org.terry.leetcode;
+
 
 import org.junit.jupiter.api.Assertions;
 
@@ -8,13 +9,25 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-public class LiveMain {
+
+/**
+ * <a href="https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair">1942. The number of the smallest unoccupied chair</a>
+ * tuition:
+ * - sort the times by `arrival`
+ * - allocate 2 heaps: `used` and `available`
+ * - iterate all the `time` in the sorted list
+ * => while cur.arrival >= heap.peek.leaving: heap.pop and push free `chair` to `available`
+ * => Then, get the `available`.pop and assign to `cur.chair`
+ * => Then, if `cur`.arrival = target.arrival : return result is the cur.chair.
+ */
+
+public class TheNumberOfTheSmallestUnoccupiedChair {
     public static void main(String[] args) {
-        new LiveMain().run();
+        new TheNumberOfTheSmallestUnoccupiedChair().run();
     }
 
     public void run() {
-        int[][] times = new int[][]{{1,4},{2,3},{4,6}};
+        int[][] times = new int[][]{{1, 4}, {2, 3}, {4, 6}};
         int targetFriend = 1;
         int expected = 1;
         int actual = smallestChair(times, targetFriend);
@@ -64,4 +77,5 @@ public class LiveMain {
             this.leaving = leaving;
         }
     }
+
 }
