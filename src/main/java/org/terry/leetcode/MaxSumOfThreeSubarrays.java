@@ -61,12 +61,12 @@ public class MaxSumOfThreeSubarrays {
         return indices(sum).stream().mapToInt(Integer::intValue).toArray();
     }
 
-    List<Integer> indices(int[] nums) {
+    List<Integer> indices(int[] sum) {
         int i = 0;
         List<Integer> res = new ArrayList<>();
-        while (i <= nums.length - k && res.size() < 3) {
-            int curSum = nums[i] + maxSum(nums, i + k, res.size() + 1);
-            int nextSum = maxSum(nums, i + 1, res.size());
+        while (i <= sum.length - k && res.size() < 3) {
+            int curSum = sum[i] + maxSum(sum, i + k, res.size() + 1);
+            int nextSum = maxSum(sum, i + 1, res.size());
 
             if (curSum >= nextSum) {
                 res.add(i);
@@ -78,14 +78,14 @@ public class MaxSumOfThreeSubarrays {
         return res;
     }
 
-    int maxSum(int[] nums, int cur, int cnt) {
-        if (cnt==3 || cur > nums.length - k) {
+    int maxSum(int[] sum, int cur, int cnt) {
+        if (cnt==3 || cur > sum.length - k) {
             return 0;
         }
 
         if (cache[cur][cnt]!=0) return cache[cur][cnt];
-        int curSum = nums[cur] + maxSum(nums, cur + k, cnt + 1);
-        int nxtSum = maxSum(nums, cur + 1, cnt);
+        int curSum = sum[cur] + maxSum(sum, cur + k, cnt + 1);
+        int nxtSum = maxSum(sum, cur + 1, cnt);
 
         cache[cur][cnt] = Math.max(curSum, nxtSum);
         return cache[cur][cnt];
