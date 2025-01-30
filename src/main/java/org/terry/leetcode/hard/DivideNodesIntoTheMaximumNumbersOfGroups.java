@@ -11,7 +11,7 @@ import java.util.*;
  *
  * Note:
  * In graph theory, a bipartite graph (or bigraph) is a graph whose vertices (or nodes) can be divided into two disjoint sets X and Y such that every edge connects a vertex in X to one in Y.
- * with Bipartite graph, return -1.
+ * If it is not the Bipartite graph, return -1.
  */
 public class DivideNodesIntoTheMaximumNumbersOfGroups {
     public static void main(String[] args) {
