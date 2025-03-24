@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * <a href="https://leetcode.com/problems/count-the-number-of-complete-components/description/?envType=daily-question&envId=2025-03-22">
- *     2685. Count the number of complete components
+ * 2685. Count the number of complete components
  * </a>
  */
 public class CountTheNumberOfCompleteComponents {
@@ -47,9 +47,30 @@ public class CountTheNumberOfCompleteComponents {
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < n; i++) {
             if (set.contains(i)) continue;
-            if (bfs(graph, set, i)) res++;
+//            if (bfs(graph, set, i)) res++;
+            if (dfs(graph, set, i)) res++;
         }
         return res;
+    }
+
+    boolean dfs(Map<Integer, List<Integer>> graph, Set<Integer> set, int cur) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int edgeCnt = 0;
+        int nodeCnt = 0;
+        stack.push(cur);
+        while (!stack.isEmpty()) {
+           int next = stack.pop();
+           if (set.contains(next)) continue;
+           set.add(next);
+           nodeCnt ++;
+           List<Integer> neighbors = graph.getOrDefault(next, Collections.emptyList()).stream().filter(n -> !set.contains(n)).toList();
+           edgeCnt += neighbors.size();
+           for (int nei : neighbors) {
+              stack.push(nei);
+           }
+        }
+
+        return edgeCnt == nodeCnt * (nodeCnt - 1)/2;
     }
 
     boolean bfs(Map<Integer, List<Integer>> graph, Set<Integer> set, int cur) {
@@ -75,7 +96,7 @@ public class CountTheNumberOfCompleteComponents {
         // formula :
         // Node count: n
         // connected sub graph will have: n*(n-1)/2
-        return nodeCnt * (nodeCnt - 1)/2==edgeCnt;
+        return nodeCnt * (nodeCnt - 1) / 2==edgeCnt;
     }
 
 }
