@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.function.BiFunction;
 
+/**
+ * <a href="https://leetcode.com/problems/count-good-numbers/description/?envType=daily-question&envId=2025-04-13">Leetcode-1922</a>
+ */
 public class CountGoodNumbers {
     public static void main(String[] args) {
         new CountGoodNumbers().run();
@@ -18,7 +21,7 @@ public class CountGoodNumbers {
 
     public int countGoodNumbers(long length) {
         final int MOD = 1_000_000_007;
-        long oddLength =  length / 2;
+        long oddLength = length / 2;
         long evenLength = (length + 1) / 2;
 
         int primeCnt = 4;// {2,3,5,7};
