@@ -34,6 +34,28 @@ public class CountTheNumberOfFairPairs {
 
     public long countFairPairs(int[] nums, int lower, int upper) {
         Arrays.sort(nums);
+        return count(nums, upper) - count(nums, lower - 1);
+    }
+
+    public long count(int[] nums, int target) {
+        int left = 0, right = nums.length-1;
+        long res = 0;
+        while (left < right) {
+            long total = nums[left] + nums[right];
+            if (total > target) {
+                right --;
+            } else {
+                res += (right - left);
+                left ++;
+            }
+        }
+
+        return res;
+
+    }
+    /*
+    public long countFairPairs(int[] nums, int lower, int upper) {
+        Arrays.sort(nums);
         int i = 0;
         int res = 0;
         while (i < nums.length) {
@@ -53,5 +75,5 @@ public class CountTheNumberOfFairPairs {
         }
         return right;
     }
-
+*/
 }
