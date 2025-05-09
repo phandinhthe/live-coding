@@ -53,7 +53,7 @@ public class CountTheNumberOfFairPairs {
         return res;
 
     }
-    /*
+    /* Test GH CLI
     public long countFairPairs(int[] nums, int lower, int upper) {
         Arrays.sort(nums);
         int i = 0;
